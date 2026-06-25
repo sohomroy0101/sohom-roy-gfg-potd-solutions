@@ -1,0 +1,17 @@
+// Problem: Kth smallest element in a Matrix
+//geekforgeeks problem of the day -> 31st May 2025
+
+class Solution {
+  public:
+    int kthSmallest(vector<vector<int>> &mat, int k) {
+        int n = mat.size();
+        vector<int> temp;
+        for(int i =0 ; i < n ; i++) {
+            for(int j = 0 ; j < n ; j++) {
+                temp.push_back(mat[i][j]);
+            }
+        }
+        sort(temp.begin(), temp.end());
+        return temp[k-1];
+    }
+};
