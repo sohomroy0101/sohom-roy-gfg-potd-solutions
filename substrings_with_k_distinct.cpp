@@ -1,6 +1,6 @@
 //Problem: Substrings with K Distinct
 //geeksforgeeks problem of the day -> 3rd June 2025
-
+//C++ code
 class Solution {
   public:
     int atMost(string& s, int k){   

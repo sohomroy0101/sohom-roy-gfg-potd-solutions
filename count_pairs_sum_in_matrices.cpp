@@ -1,7 +1,7 @@
 //Problem: Count pairs Sum in matrices
 //geeksforgeeks problem of the day -> 1st June 2025
 
-
+//C++ code
 class Solution {
   public:
     int countPairs(vector<vector<int>> &mat1, vector<vector<int>> &mat2, int x) {

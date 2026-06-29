@@ -1,6 +1,6 @@
 // Problem: Kth smallest element in a Matrix
 //geekforgeeks problem of the day -> 31st May 2025
-
+//C++ code
 class Solution {
   public:
     int kthSmallest(vector<vector<int>> &mat, int k) {
