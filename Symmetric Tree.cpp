@@ -1,0 +1,21 @@
+//Problem: Symmetric Tree
+//geeksforgeeks problem of the day -> 14th June 2025
+
+//C++ code
+class Solution {
+  public:
+    bool solve(Node* left,Node* right)
+    {
+        if(left==NULL || right==NULL)
+            return left==right;
+        if(left->data!=right->data)
+            return false;
+        return solve(left->left,right->right)
+                && solve(left->right,right->left);
+    }
+    bool isSymmetric(Node* root) {
+        Node* left=root->left;
+        Node* right=root->right;
+        return solve(left,right);
+    }
+};
