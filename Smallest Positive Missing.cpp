@@ -1,0 +1,14 @@
+//Problem: Smallest Positive Missing
+//geeksforgeeks problem of the day -> 22nd July 2025
+//C++ CODE
+class Solution {
+  public:
+    int missingNumber(vector<int> &arr) {
+        vector<bool> v(1000010,0);
+        for(int x:arr) 
+        if(x>0) v[x]=1;
+        for(int i=1;i<100000;++i)
+        if(v[i]==0) return i;
+        return -1;
+    }
+};

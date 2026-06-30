@@ -1,0 +1,17 @@
+//Problem: Trail of ones
+//geeksforgeeks problem of the day -> 11th July 2025
+//C++ CODE
+class Solution {
+  public:
+    int countConsec(int n) {
+        int temp= pow(2, n);
+        int a= 1, b= 1;
+        
+        for(int i=1;i<=n;i++){
+            int t= a;
+            a += b;
+            b = t;
+        }
+        return temp-a;
+    }
+};
