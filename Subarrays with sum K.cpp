@@ -1,0 +1,17 @@
+//Problem: Subarrays with sum K
+//geeksforgeeks problem of the day -> 30th July 2025
+//C++ CODE
+class Solution {
+  public:
+    int cntSubarrays(vector<int> &arr, int k) {
+        int ans=0, sum=0, n=arr.size();
+        unordered_map<int, int> mp;
+        mp[0]=1;
+        for(int i=0;i<n;i++){
+            sum+=arr[i];
+            ans+=mp[sum-k];
+            mp[sum]++;
+        }
+        return ans;
+    }
+};
