@@ -1,0 +1,35 @@
+//Problem: Longest Prefix Suffix
+//geeksforgeeks problem of the day -> 8th August 2025
+//C++ code
+class Solution {
+  public:
+    int getLPSLength(string &s) {
+        int n = s.length();
+        vector<int> lps(n,0);
+        lps[0]=0;
+        int len=0;
+        int i=1;
+        while(i<n)
+        {
+            if(s[i]==s[len])
+            {
+                len++;
+                lps[i]=len;
+                i++;
+            }
+            else
+            {
+                if(len==0)
+                {
+                    lps[i]=len;
+                    i++;
+                }
+                else
+                {
+                    len=lps[len-1]; 
+                }
+            }
+        }
+        return lps[n-1];
+    }
+};

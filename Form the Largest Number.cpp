@@ -1,0 +1,19 @@
+//Problem: Form the Largest Number
+//geeksforgeeks problem of the day -> 16th August 2025
+// C++ CODE
+class Solution {
+  public:
+    string findLargest(vector<int> &arr) {
+        sort(arr.begin(), arr.end(),[](int&a, int& b){
+            string x = to_string(a); 
+            string y = to_string(b); 
+            return x + y > y + x;
+        });
+        if (!arr.empty() && arr[0] == 0) return "0";
+        string ans ;
+        for(auto i : arr){
+            ans += to_string(i);
+        }
+        return ans;
+    }
+};

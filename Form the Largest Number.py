@@ -1,0 +1,20 @@
+#Problem: Form the Largest Number
+#geeksforgeeks problem of the day -> 16th August 2025
+#Python Code
+class Solution:
+   def findLargest(self, arr):
+	    import functools
+	    arr = [str(e) for e in arr]
+	    def cmp(e1, e2):
+	        a = e1+e2
+	        b = e2+e1
+	        if a > b:
+	            return -1
+	        elif a == b:
+	            return 0
+	        else:
+	            return 1
+	            
+        arr.sort(key=functools.cmp_to_key(cmp))
+        s = "".join(arr).lstrip("0")
+        return s if s else "0"
