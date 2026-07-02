@@ -1,0 +1,28 @@
+//Problem: Count the number of possible triangles
+//geeksforgeeks problem of the day -> 27th August 2025
+// C++ CODE
+class Solution {
+  public:
+    int countTriangles(vector<int>& arr) {
+        sort(arr.begin(),arr.end());
+        int n=arr.size();
+        int count=0;
+        int i=n-1;
+        while(i>1){
+            int start=0;
+            int end=i-1;
+            while(start < end){
+                if(arr[start] + arr[end]  > arr[i]){
+                    count+=(end-start); 
+                    end--;      
+                }                       
+                else{
+                    start++;
+                }
+            }
+            
+            i--;
+        }
+    return count;
+    }
+};
