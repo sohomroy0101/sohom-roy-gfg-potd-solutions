@@ -1,0 +1,19 @@
+//Problem: Rotate Deque By K
+//geeksforgeeks problem of the day -> 26th September 2025
+// C++ CODE
+class Solution {
+  public:
+    void rotateDeque(deque<int>& dq, int type, int k) {
+        while(k--)
+        {
+            if(type == 1){
+                dq.push_front(dq.back());
+                dq.pop_back();
+            }
+            else{
+                dq.push_back(dq.front());
+                dq.pop_front();
+            }
+        }
+    }
+};

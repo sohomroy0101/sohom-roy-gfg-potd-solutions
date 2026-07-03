@@ -1,0 +1,20 @@
+//Problem: Generate all binary strings
+//geeksforgeeks problem of the day -> 30th September 2025
+// C++ CODE
+class Solution {
+public:
+    vector<string> binstr(int n) {
+        vector<string> ans;
+        helper(ans, "", n);
+        return ans;
+    }
+private:
+    void helper(vector<string>& ans, string curr, int n) {
+        if(curr.length() == n) {
+            ans.push_back(curr);
+            return;
+        }
+        helper(ans, curr + '0', n);
+        helper(ans, curr + '1', n);
+    }
+};
