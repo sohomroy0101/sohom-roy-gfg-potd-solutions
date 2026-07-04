@@ -1,0 +1,31 @@
+//Problem: Count of distinct substrings
+//geeksforgeeks problem of the day -> 30th November 2025
+// C++ CODE
+class Node{
+  public:
+    Node *child[26];
+    Node(){
+      for(int i=0;i<26;i++)
+        child[i] = NULL;
+    }
+};
+class Solution {
+  public:
+    virtual int countSubs(string& s){
+      Node *root = new Node();
+      int n = s.size();
+      int count=0;
+      for(int i=0;i<n;i++){
+        Node* temp = root;
+        for(int j=i;j<n;j++){
+          int ind = s[j]-97;
+          if(temp->child[ind] == NULL){
+            temp->child[ind] = new Node();
+            count++;  
+          }
+          temp = temp->child[ind];
+        }
+      }
+      return count;
+    }
+};
