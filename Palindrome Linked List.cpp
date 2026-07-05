@@ -1,0 +1,47 @@
+//Problem: Palindrome Linked List
+//geeksforgeeks problem of the day -> 31st December 2025
+//Last day of the year 2025
+
+// C++ CODE
+class Solution {
+  public:
+  Node* reverselist(Node* &prev,Node* &curr){
+      while(curr != NULL){
+          Node* forward = curr->next;
+          curr->next = prev;
+          prev = curr;
+          curr = forward;
+      }
+      return prev;
+  }
+  Node* solve(Node *&head,Node* &middleprev){
+      Node* fast = head;
+      Node* slow = head;
+      while(fast != NULL){
+          fast = fast->next;
+          if(fast != NULL){
+              fast = fast->next;
+              middleprev = slow;
+              slow = slow->next;
+          }
+      }
+      return slow;
+  }
+    bool isPalindrome(Node *head) {
+        Node* temp = head;
+        Node* middleprev = head;
+        Node* mid = solve(head,middleprev);
+        middleprev->next = NULL;
+        Node* prev = NULL;
+        Node* curr = mid;
+        Node* reversetemp = reverselist(prev,curr);
+        while(temp != NULL){
+            if(temp->data != reversetemp->data){
+                return false;
+            }
+            temp = temp->next;
+            reversetemp = reversetemp->next;
+        }
+        return true;
+    }
+};

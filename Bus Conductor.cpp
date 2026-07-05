@@ -1,0 +1,17 @@
+//Problem: Bus Conductor
+//geeksforgeeks problem of the day -> 19th December 2025
+// C++ CODE
+class Solution {
+  public:
+    int findMoves(vector<int>& chairs, vector<int>& passengers) {
+        sort(chairs.begin(),chairs.end());
+        sort(passengers.begin(),passengers.end());
+        int cnt=0;
+        int n=chairs.size();
+        for(int i=0;i<n;i++)
+        {
+            cnt+=abs(passengers[i]-chairs[i]);
+        }
+        return cnt;
+    }
+};

@@ -1,0 +1,21 @@
+//Problem: Max Sum Subarray of size K
+//geeksforgeeks problem of the day -> 5th January 2026
+// C++ CODE
+class Solution {
+  public:
+    int maxSubarraySum(vector<int>& arr, int k) {
+        int n = arr.size();
+        int i = 0,j = 0;
+        long long sum = 0,ans = 0;
+        while(j < n){
+            sum += arr[j];
+            if(j - i + 1 >= k){
+                ans = max(ans,sum);
+                sum -= arr[i];
+                i++;
+            }
+            j++;
+        }
+        return ans;
+    }
+};

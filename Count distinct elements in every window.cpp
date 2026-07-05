@@ -1,0 +1,25 @@
+//Problem: Count distinct elements in every window
+//geeksforgeeks problem of the day -> 7th January 2026
+// C++ CODE
+class Solution {
+  public:
+    vector<int> countDistinct(vector<int> &arr, int k) {
+        //CodeGenius
+        unordered_map<int,int>mp;
+        vector<int>ans;
+        
+        for(int i=0;i<k;i++)
+        mp[arr[i]]++;
+        
+        ans.push_back(mp.size());
+        
+        for(int i=k;i<arr.size();i++){
+            mp[arr[i]]++;
+            mp[arr[i-k]]--;
+            
+            if(mp[arr[i-k]]==0) mp.erase(arr[i-k]);
+            ans.push_back(mp.size());
+        }
+        return ans;
+    }
+};
