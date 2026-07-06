@@ -1,0 +1,32 @@
+//Problem: Burning Tree
+//geeksforgeeks problem of the day -> 17th March 2026
+//C++ CODE
+class Solution {
+  public:
+    int Target;
+    int ans;
+    int time(Node*root){
+        if(!root)   return 0;
+        int l = time(root->left);
+        int r = time(root->right);
+        if(root->data == Target){
+            ans = max({ans,abs(l),abs(r)});
+            return 1;
+        }
+        else if(l<=0 && r<=0 )    return min(l,r)-1;
+        else if(l>=1){
+            ans = max(ans,abs(l-r));
+            return l+1;
+        }
+        else if(r>=1){
+            ans = max(ans,abs(l-r));
+            return r+1;
+        }  
+    }
+    int minTime(Node* root, int target) {
+        ans = 0;
+        Target = target;
+        time(root);
+        return ans;     
+    }
+};

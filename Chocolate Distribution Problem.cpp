@@ -1,0 +1,15 @@
+//Problem: Chocolate Distribution Problem
+//geeksforgeeks problem of the day -> 15th February 2026
+//C++ CODE
+class Solution {
+  public:
+    int findMinDiff(vector<int>& a, int m) {
+    sort(a.begin(), a.end());
+    int maxi= a[m-1] - a[0];
+    for(int i=m; i<a.size(); i++){
+        int naptherMAxi= a[i]- a[i-m+1];
+        maxi= min(naptherMAxi, maxi);
+    }
+    return maxi;
+    }
+};
