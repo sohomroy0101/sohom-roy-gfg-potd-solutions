@@ -1,0 +1,20 @@
+//Problem: Two Equal Sum Subarrays
+//geeksforgeeks problem of the day -> 23rd April 2026
+//C++ CODE
+class Solution {
+  public:
+    bool canSplit(vector<int>& arr) {
+        int totalSum = 0;
+        int size = arr.size();
+        for (int i = 0; i < size; i++)
+            totalSum += arr[i];
+        int partialSum = 0;
+        for (int i = size - 1; i >= 0; i--) {
+            partialSum += arr[i];
+            totalSum -= arr[i];
+            if (partialSum == totalSum)
+                return true;
+        }
+        return false;
+    }
+};

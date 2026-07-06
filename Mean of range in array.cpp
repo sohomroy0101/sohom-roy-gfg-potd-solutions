@@ -1,0 +1,16 @@
+//Problem: Mean of range in array
+//geeksforgeeks problem of the day -> 22nd April 2026
+//C++ CODE
+class Solution {
+public:
+    vector<int> findMean(vector<int>& arr, vector<vector<int>>& queries) {
+        int n = arr.size();
+        vector<int> prefSum(n + 1, 0);
+        for (int i = 0; i < n; i++)
+            prefSum[i + 1] = prefSum[i] + arr[i];
+        vector<int> res;
+        for (auto it : queries)
+            res.push_back((prefSum[it[1] + 1] - prefSum[it[0]]) /(it[1] - it[0] + 1));
+        return res;
+    }
+};
