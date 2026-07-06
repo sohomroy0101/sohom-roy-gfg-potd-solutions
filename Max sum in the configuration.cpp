@@ -1,0 +1,19 @@
+//Problem: Max sum in the configuration
+//geeksforgeeks problem of the day -> 7th February 2026
+//C++ CODE
+class Solution {
+  public:
+    int maxSum(vector<int> &arr) {
+        int sum =0,sumVal=0,n=arr.size();
+        for(int i=0; i<n; i++) {
+            sum+=arr[i];
+            sumVal+=(i*arr[i]);
+        }
+        int maxSum = sumVal;
+        for(int i=0; i<n-1; i++) {
+            sumVal = sumVal - sum + n*arr[i];
+            maxSum = max(maxSum, sumVal);
+        }
+        return maxSum;
+    }
+};
