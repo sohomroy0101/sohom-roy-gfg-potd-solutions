@@ -1,0 +1,16 @@
+//Problem: Replace with XOR of Adjacent 
+//geeksforgeeks problem of the day -> 30th May 2026
+//C++ CODE
+class Solution {
+  public:
+    void replaceElements(vector<int>& arr) {
+        int prev = arr[0];
+        for(int i=0;i<arr.size()-1;i++)
+        {
+            int temp = arr[i];
+            arr[i] = prev ^ arr[i+1];
+            prev = temp;
+        }
+        arr[arr.size()-1] ^= prev;
+    }
+};
