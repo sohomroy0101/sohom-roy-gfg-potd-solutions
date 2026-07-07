@@ -1,0 +1,26 @@
+//Problem: Exit Point in a Matrix
+//geeksforgeeks problem of the day -> 14th June 2026
+//C++ CODE
+class Solution {
+  public:
+    vector<int> exitPoint(vector<vector<int>>& mat) {
+        int x =-1 , y = -1;
+        int currx = 0 , curry = 0;
+        int arr[] = {0 , 1 , 0 , -1, 0};
+        int curr = 0;
+        while(currx < mat.size() && curry < mat[0].size() && currx>=0 && curry>=0){
+        x = currx , y = curry;
+            if(mat[x][y] == 0){
+                currx+= arr[curr];
+                curry += arr[curr+1];
+            }else{
+                mat[x][y] = 0;
+                curr++;
+                curr%=4;
+                currx+= arr[curr];
+                curry += arr[curr+1];
+            }
+        }
+        return {x , y};
+    }
+};

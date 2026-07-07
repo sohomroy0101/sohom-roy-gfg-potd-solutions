@@ -1,0 +1,19 @@
+//Problem: Minimum Cost to Fill Given Weight
+//geeksforgeeks problem of the day -> 15th June 2026
+//C++ CODE
+
+class Solution {
+  public:
+    int minimumCost(vector<int> &cost, int w) {
+        vector<int> dp(w + 1, 1e9);
+        dp[0] = 0;
+        for (int i = 1; i <= cost.size(); i++) {
+            if (cost[i - 1] == -1)
+                continue;
+            for (int j = i; j <= w; j++) {
+                dp[j] = min(dp[j], dp[j - i] + cost[i - 1]);
+            }
+        }
+        return (dp[w] == 1e9) ? -1 : dp[w];
+    }
+};
