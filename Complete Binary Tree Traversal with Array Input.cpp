@@ -1,0 +1,23 @@
+// Problem: Complete Binary Tree Traversal with Array Input
+// geeksforgeeks problem of the day -> 26th July 2026
+// C++ CODE
+class Solution {
+  public:
+    vector<vector<int>> levelSort(vector<int>& arr) {
+        vector<vector<int>> ans;
+        int n = arr.size();
+        int index = 0;
+        int levelSize = 1;
+        while (index < n) {
+            vector<int> level;
+            for (int i = 0; i < levelSize && index < n; i++) {
+                level.push_back(arr[index]);
+                index++;
+            }
+            sort(level.begin(), level.end());
+            ans.push_back(level);
+            levelSize *= 2;
+        }
+        return ans;
+    }
+};
