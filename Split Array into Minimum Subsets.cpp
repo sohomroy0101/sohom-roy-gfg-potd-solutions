@@ -1,0 +1,14 @@
+// Problem: Split Array into Minimum Subsets
+// geeksforgeeks problem of the day -> 29th July 2026
+// C++ CODE
+class Solution {
+  public:
+    int minSubsets(vector<int>& arr) {
+        sort(arr.begin(),arr.end());
+        int ans = 1;
+        for(int i = 1;i<arr.size();i++){
+            if(arr[i]!=arr[i-1]+1) ans++;
+        }
+        return ans;
+    }
+};
