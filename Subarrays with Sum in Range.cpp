@@ -1,0 +1,25 @@
+// Problem: Subarrays with Sum in Range
+// geeksforgeeks problem of the day -> 5th August 2026
+// C++ CODE
+class Solution {
+	public:
+	int solve(vector<int>&arr, int x) {
+		int n = arr.size();
+		int count = 0;
+		int sum = 0;
+		int j = 0;
+		for (int i = 0; i<n; i++) {
+			sum += arr[i];
+
+			while(sum>x){
+			    sum-=arr[j++];
+			}
+			
+			count += (i-j+1);
+		}
+		return count;
+	}
+	int countSubarray(vector<int>& arr, int l, int r) {
+		return solve(arr, r) - solve(arr, l-1);
+	}
+};
