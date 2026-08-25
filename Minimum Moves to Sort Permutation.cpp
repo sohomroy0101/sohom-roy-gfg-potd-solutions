@@ -1,0 +1,24 @@
+// Problem: Minimum Moves to Sort Permutation
+// geeksforgeeks problem of the day -> 25th August 2026
+// C++ CODE
+class Solution {
+  public:
+    int minMoves(vector<int>& arr) {
+        int n = arr.size();
+        vector<int> pos(n + 1);
+        for (int i = 0; i < n; i++) {
+            pos[arr[i]] = i;
+        }
+        int current = 1;
+        int longest = 1;
+        for (int value = 1; value < n; value++) {
+            if (pos[value] < pos[value + 1]) {
+                current++;
+            } else {
+                current = 1;
+            }
+            longest = max(longest, current);
+        }
+        return n - longest;
+    }
+};
