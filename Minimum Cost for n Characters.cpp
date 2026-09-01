@@ -1,0 +1,20 @@
+// Problem: Minimum Cost for n Characters
+// geeksforgeeks problem of the day -> 31st August 2026
+// C++ CODE
+class Solution {
+  public:
+    long long minCost(long long n, long long i, long long d, long long c) {
+        long long ans = n * i; 
+        while (n > 1) {
+            if (n % 2 == 0) {
+                ans = min(ans, c + minCost(n / 2, i, d, c));
+            } 
+            else {
+                ans = min(ans, i + minCost(n - 1, i, d, c));
+                ans = min(ans, d + minCost(n + 1, i, d, c));
+            }
+            break;
+        }
+        return ans;
+    }
+};
