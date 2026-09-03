@@ -1,0 +1,16 @@
+// Problem: Max Adjacent Diffs Sum with 1 Replacements
+// geeksforgeeks problem of the day -> 3rd September 2026
+// C++ CODE
+class Solution {
+  public:
+    int maxDiffSum(vector<int>& arr) {
+        int v1 = 0, v2 = 0;
+        for(int i = arr.size()-2; i >= 0; i--){
+            int x = max(v1, abs(1-arr[i+1]) + v2);
+            int y = max(abs(arr[i]-1) + v1, abs(arr[i]-arr[i+1])+ v2);
+            v1 = x;
+            v2 = y;
+        }
+        return max(v1,v2);
+    }
+};
