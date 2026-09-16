@@ -1,0 +1,23 @@
+// Problem: Dominant Pairs
+// geeksforgeeks problem of the day -> 16th September 2026
+// C++ CODE
+class Solution {
+  public:
+    int dominantPairs(vector<int> &arr) {
+       int mid = arr.size()/2 ;
+       sort(arr.begin(), arr.begin()+mid) ;
+       sort(arr.begin()+mid, arr.end()) ;
+       int l = 0, r = mid ;
+       int count = 0 ;
+       while(l < mid && r < arr.size()){
+           if(arr[l] >= 5*arr[r]){
+               count += (mid - l) ;
+               r++ ;
+           }
+           else{
+               l++ ;
+           }
+       }
+        return count ;
+    }
+};
