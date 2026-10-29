@@ -1,0 +1,18 @@
+// Problem: Optimal File Merge
+// geeksforgeeks problem of the day -> 29th October 2026
+// C++ CODE
+class Solution {
+  public:
+    int minComputation(vector<int> &files){
+      int ans=0;
+      priority_queue<int, vector<int>, greater<int>> minH;
+      for(int x: files) minH.push(x);
+      while(minH.size() > 1){
+       int t1=minH.top(); minH.pop();
+       int t2=minH.top(); minH.pop();
+       ans+=(t1+t2);
+       minH.push(t1+t2);
+      }
+      return ans;
+    }
+};
